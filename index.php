@@ -44,12 +44,12 @@ $rows = $db->query($sql);
                 <h4 class="modal-title">Add Task</h4>
                 </div>
                 <div class="modal-body">
-                <form>
+                <form method="post" action="add.php">
                     <div class="form-group">
                         <label for="name">Task Name</label>
-                        <input type="text" name="name" value="" class="form-control" required>
+                        <input type="text" name="task" value="" placeholder="task name" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-success btn-sm" >Send</button>
+                    <button type="submit" name="send" class="btn btn-success btn-sm" >Add Task</button>
                 </form>
                 </div>
                 <div class="modal-footer">
