@@ -9,7 +9,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container" style="margin-left:100px">
+<div class="container" style="margin-top:10px;">
+<button type="button" class="btn btn-primary btn-md">Add Task</button>
+<button type="button" class="btn btn-info btn-md">Print</button>
 <center><h1>Todo list</h1></center>
   <table class="table table-hover">
     <thead>
