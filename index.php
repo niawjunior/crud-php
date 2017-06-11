@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include("db.php");?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +15,7 @@
 <div class="container" style="margin-top:10px;">
 <button type="button" class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#myModal">Add Task</button>
 <button type="button" class="btn btn-info btn-md pull-right">Print</button>
-<center>
-<h1>Todo list</h1>
+<h1 align="center">Todo list</h1>
     <table class="table table-hover" style="text-align:center;">
         <thead>
             <tr>
@@ -33,14 +33,7 @@
         <td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
         </tr>
     </tbody>
-   
-    </table>
-</center>
-</div>
-</body>
-</html>
-
-<!-- Modal -->
+   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -48,10 +41,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Add Task</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+         <form>
+             <div class="form-group">
+                 <label for="name">Task Name</label>
+                 <input type="text" name="name" value="" class="form-control" required>
+             </div>
+             <button type="submit" class="btn btn-success btn-sm" >Send</button>
+         </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -60,3 +59,7 @@
       
     </div>
   </div>
+    </table>
+</div>
+</body>
+</html>
