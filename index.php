@@ -2,8 +2,8 @@
 <?php include 'db.php';
       include 'config.php';
 
-$page = (isset($GET['page']) ? $GET['page'] : 1);
-$perPage = (isset($GET['per-page']) && ($GET['per-page']) <=50 ? $GET['per-page'] : 5);
+$page = (isset($_GET['page']) ? $_GET['page'] : 1);
+$perPage = (isset($_GET['per-page']) && ($_GET['per-page']) <=50 ? $_GET['per-page'] : 2);
 $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 
 $sql = "SELECT * FROM tasks_table LIMIT ".$start.",".$perPage." ";
@@ -74,7 +74,7 @@ glyphicon "></span></a></td>
     <ul class="pagination">
         <?php for($i = 1 ; $i <= $pages; $i++): ?>
         <li>
-        <a href=""><?php echo $i;?></a>
+        <a href="?page=<?php echo $i;?>"><?php echo $i;?></a>
         </li>
         <?php endfor;?>
     </ul>
