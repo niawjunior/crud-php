@@ -10,28 +10,30 @@
 </head>
 <body>
 <div class="container" style="margin-top:10px;">
-<button type="button" class="btn btn-primary btn-md">Add Task</button>
-<button type="button" class="btn btn-info btn-md">Print</button>
-<center><h1>Todo list</h1></center>
-  <table class="table table-hover">
+<button type="button" class="btn btn-primary btn-md pull-left">Add Task</button>
+<button type="button" class="btn btn-info btn-md pull-right">Print</button>
+<center>
+<h1>Todo list</h1>
+ <table class="table table-hover" style="text-align:center;">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th style="text-align:center" width="50%">No.</th>
+        <th style="text-align:center" width="40%">Task</th>
+        <th style="text-align:center" width="5px">Edit</th>
+        <th style="text-align:center" width="5px">Delete</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>1</td>
+        <td>Job1</td>
+        <td><a href="" class="btn btn-warning btn-xs">Edit</a></td>
+        <td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
       </tr>
     </tbody>
   </table>
+</center>
+ 
 </div>
-
-
-
 </body>
 </html>
