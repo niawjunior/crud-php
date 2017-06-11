@@ -32,7 +32,7 @@ $rows = $db->query($sql);
         <td><?php echo $row['id'];?></td>
         <td><?php echo $row['name'];?></td>
         <td><a href="" class="btn btn-warning btn-xs">Edit</a></td>
-        <td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
+        <td><a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-xs">Delete</a></td>
         </tr>
         <?php endwhile;?>
     </tbody>
