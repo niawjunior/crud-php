@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<?php include("db.php");?>
+<?php include 'db.php';
+      include 'config.php';
+$sql = "SELECT * FROM tasks_table";
+$rows = $db->query($sql);
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CRUD</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
 </head>
 <body>
 <div class="container" style="margin-top:10px;">
@@ -27,38 +28,36 @@
         </thead>
     <tbody>
         <tr>
-        <td>1</td>
-        <td>Job1</td>
+        <?php while($row = $rows->fetch_assoc()):?>
+        <td><?php echo $row['id'];?></td>
+        <td><?php echo $row['name'];?></td>
         <td><a href="" class="btn btn-warning btn-xs">Edit</a></td>
         <td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
         </tr>
+        <?php endwhile;?>
     </tbody>
-   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Task</h4>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Task</h4>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Task Name</label>
+                        <input type="text" name="name" value="" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm" >Send</button>
+                </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
         </div>
-        <div class="modal-body">
-         <form>
-             <div class="form-group">
-                 <label for="name">Task Name</label>
-                 <input type="text" name="name" value="" class="form-control" required>
-             </div>
-             <button type="submit" class="btn btn-success btn-sm" >Send</button>
-         </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
     </table>
 </div>
 </body>
