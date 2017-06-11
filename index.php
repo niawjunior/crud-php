@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php include 'db.php';
       include 'config.php';
-$sql = "SELECT * FROM tasks_table";
+$sql = "SELECT * FROM tasks_table ORDER BY id DESC;";
 $rows = $db->query($sql);
 
 ?>
@@ -13,10 +13,13 @@ $rows = $db->query($sql);
     <title>CRUD</title>
 </head>
 <body>
+<center><h1>Todo list</h1></center>
+<div class="col-md-12">
+<div class="panel panel-default" style="margin-top:30px;">
+<div class="panel-body" style="height:300px">
 <div class="container" style="margin-top:10px;">
-<button type="button" class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#myModal">Add Task</button>
-<button type="button" class="btn btn-info btn-md pull-right">Print</button>
-<h1 align="center">Todo list</h1>
+<button type="button" class="btn btn-primary btn-sm pull-left" data-toggle="modal" data-target="#myModal">Add Task <span class="glyphicon glyphicon-plus"></span></button>
+<button type="button" class="btn btn-info btn-sm pull-right">Print <span class="glyphicon glyphicon-print"></span></button>
     <table class="table table-hover" style="text-align:center;">
         <thead>
             <tr>
@@ -31,34 +34,38 @@ $rows = $db->query($sql);
         <?php while($row = $rows->fetch_assoc()):?>
         <td><?php echo $row['id'];?></td>
         <td><?php echo $row['name'];?></td>
-        <td><a href="" class="btn btn-warning btn-xs">Edit</a></td>
-        <td><a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-xs">Delete</a></td>
+        <td><a href="update.php?id=<?php echo $row['id'];?>" class="btn btn-warning btn-xs">Edit <span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-xs">Delete <span class="glyphicon glyphicon-trash
+glyphicon "></span></a></td>
         </tr>
         <?php endwhile;?>
     </tbody>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add Task</h4>
-                </div>
-                <div class="modal-body">
-                <form method="post" action="add.php">
-                    <div class="form-group">
-                        <label for="name">Task Name</label>
-                        <input type="text" name="task" value="" placeholder="task name" class="form-control" required>
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Task </h4>
                     </div>
-                    <button type="submit" name="send" class="btn btn-success btn-sm" >Add Task</button>
-                </form>
+                    <div class="modal-body">
+                    <form method="post" action="add.php">
+                        <div class="form-group">
+                            <label for="name">Task Name</label>
+                            <input type="text" name="task" value="" placeholder="task name" class="form-control" required>
+                        </div>
+                        <button type="submit" name="send" class="btn btn-success btn-sm" >Add Task <span class="glyphicon glyphicon-plus"></span></button>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
             </div>
         </div>
     </table>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
