@@ -26,7 +26,7 @@ $rows = $db->query($sql);
 <div class="panel-body" style="height:300px">
 <div class="container" style="margin-top:10px;">
 <button type="button" class="btn btn-primary btn-sm pull-left" data-toggle="modal" data-target="#myModal">Add Task <span class="glyphicon glyphicon-plus"></span></button>
-<button type="button" class="btn btn-info btn-sm pull-right">Print <span class="glyphicon glyphicon-print"></span></button>
+<button type="button" class="btn btn-info btn-sm pull-right" onclick="print()">Print <span class="glyphicon glyphicon-print"></span></button>
     <table class="table table-hover" style="text-align:center;">
         <thead>
             <tr>
@@ -74,7 +74,7 @@ glyphicon "></span></a></td>
     <ul class="pagination">
         <?php for($i = 1 ; $i <= $pages; $i++): ?>
         <li>
-        <a href="?page=<?php echo $i;?>"><?php echo $i;?></a>
+        <a href="?page=<?php echo $i;?>&per-page=<?php echo $perPage;?>"><?php echo $i;?></a>
         </li>
         <?php endfor;?>
     </ul>
