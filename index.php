@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <?php include 'db.php';
       include 'config.php';
-$sql = "SELECT * FROM tasks_table ORDER BY id DESC;";
+
+$page = (isset($GET['page']) ? $GET['page'] : 1);
+$perPage = (isset($GET['per-page']) && ($GET['per-page']) <=50 ? $GET['per-page'] : 5);
+$start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
+$sql = "SELECT * FROM tasks_table LIMIT ".$start.",".$perPage." ";
+$total = $db->query("SELECT * FROM tasks_table ")->num_rows;
+$pages = ceil($total / $perPage);
 $rows = $db->query($sql);
 
 ?>
@@ -63,6 +70,15 @@ glyphicon "></span></a></td>
             </div>
         </div>
     </table>
+    <center>
+    <ul class="pagination">
+        <?php for($i = 1 ; $i <= $pages; $i++): ?>
+        <li>
+        <a href=""><?php echo $i;?></a>
+        </li>
+        <?php endfor;?>
+    </ul>
+    </center>
 </div>
 </div>
 </div>

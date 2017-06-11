@@ -33,7 +33,7 @@ if(isset($_POST['send'])){
       <div class="input-group">
   <input type="text" class="form-control" value="<?php echo $row['name'];?>" name="task" required>
     <span class="input-group-btn">
-    <button class="btn btn-success"  type="submit" name="send">Save</button>
+    <button class="btn btn-success"  type="submit" name="send">Save <span class="glyphicon glyphicon-ok"></span></button>
   </span>
 </div>
     </form>
